@@ -1,12 +1,13 @@
 April 11, 2013
 
-V7.0 of epi_int, which is my N-body integrator designed to simulate self-gravitating
-planetary rings. For details, see my 2013 paper on this code, which is presently in
-review at Astrophysical Journal.
+V7.0 of epi_int, which is my N-body integrator designed to 
+simulate self-gravitating planetary rings. For details, see 
+my 2013 ApJ paper on this code, http://adsabs.harvard.edu/abs/2013ApJ...772..122H
 
-To execute, start IDL and execute @epi_int.pro. To configure your simulation, edit the
-input parameters in inputs.pro. The code is heavily commented, consult them for
-further guidance. Execute @results.pro to view the output.
+To execute, start IDL and execute @epi_int.pro. To configure 
+your simulation, edit the input parameters in inputs.pro. 
+The code is heavily commented, consult the code for further 
+guidance. Execute @results.pro to view the output.
 
 Send suggestions or questions to:
 Joe Hahn
