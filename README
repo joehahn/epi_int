@@ -9,6 +9,8 @@ your simulation, edit the input parameters in inputs.pro.
 The code is heavily commented, consult the code for further 
 guidance. Execute @results.pro to view the output.
 
+Developed with v6.4 of IDL, but this code is known to work with IDL v8.3
+
 Send suggestions or questions to:
 Joe Hahn
 jhahn@spacescience.org
