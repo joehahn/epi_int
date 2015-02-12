@@ -4,8 +4,11 @@ V7.0 of epi_int, which is my N-body integrator designed to
 simulate self-gravitating planetary rings. For details, see 
 my 2013 ApJ paper on this code, http://adsabs.harvard.edu/abs/2013ApJ...772..122H
 
-To execute, start IDL and execute @epi_int.pro. To configure 
-your simulation, edit the input parameters in inputs.pro. 
+To execute, start IDL and enter @epi_int.pro at the prompt. To configure 
+your simulation, edit the input parameters in inputs.pro; presently this
+file is configured to simulate the response of the outer edge of
+Saturn's B ring to satellite Mimas' m=2 inner Lindblad resonance there,
+and that simulation executes in 15 minutes on my circa 2008 PC.
 The code is heavily commented, consult the code for further 
 guidance. Execute @results.pro to view the output.
 
