@@ -1,4 +1,4 @@
-;inputs.pro 
+;inputs.pro  
 ;
 ;    called by v7.0 of epi_int.pro.
 ;
@@ -8,14 +8,14 @@ restart = 'n'
 
 ;Set the number of ring particles, where Nr=number of streamlines along radial
 ;direction and Nt=number of particles in tangential direction along one streamline.
-Nr = 32l
+Nr = 16l
 Nt = 32l
 
 ;Set time parameters, where dt=timestep, Nsteps_per_output=number of timesteps per
 ;output, and Noutput=number of outputs +1 to store initial state.
-dt = !dpi/10d
+dt = 0.1d
 Nsteps_per_output = 2000l
-Noutput = 10;0l
+Noutput = 100l
 
 ;Set difference_method='approximate' (faster but less accurate) or 'polynomial' (slower
 ;but more accurate). Set precision=1 for drift step to use equations accurate to e^1,
@@ -27,7 +27,7 @@ precision = 2
 ;units of time, length, and mass, with M_planet_gm=the central planet's mass in grams
 ;and r1_cm=distance in centimeters that corresponds to where the simulated distance r=1.
 M_planet_gm = 5.6846d29
-r1_cm = 1.0d10
+r1_cm = 1.178145d10
 
 ;Set the ring's initial conditions, with a_r_min and a_r_max = semimajor axes of the
 ;ring's inner and outer edges, e_r_init=initial eccentricity,
@@ -35,9 +35,9 @@ r1_cm = 1.0d10
 ;and N_r_init=initial longitude of ascending node. All angles are in radians
 ;and length are in units of r1. Set corotate_ring='y' to make all plots
 ;co-precess with the ring's mean longitude of periapse.
-da = 5.0d-4
+da = 1.0d-4
 a_r_max = 1 + da
-a_r_min = 1 - da
+a_r_min = 1 - 10*da
 da1 = (a_r_max - a_r_min)/200	;smallest spacing used when 'expo-outwards' or 'expo-inwards'
 radial_spacing = 'uniform'	;'uniform' or 'expo-outwards' or 'expo-inwards'
 ringlet_disk = 'ringlet'
@@ -46,7 +46,7 @@ de_r_init = 0d
 I_r_init = 0d
 w_r_init = 0d
 N_r_init = 0d
-corotate_ring = 'y'
+corotate_ring = 'n'
 
 ;Radiative boundary conditions
 outer_rbc = 'n'
@@ -56,7 +56,7 @@ N_sl_rbc = 5
 ;Set ring_gravity='y' to turn on ring gravity with surface_density=ring surface density
 ;if it were initially circular.
 ring_gravity = 'y'
-surface_density = 1.76d-8
+surface_density = 5.0d-8
 
 ;Set arrays of satellites' initial planetocentric orbit elements a_s,e_s,I_s,w_s,N_s,M_s. 
 ;If timescale t_grow_sat>0 then the satellites' masses grows exponentially over that
@@ -72,19 +72,19 @@ I_s = [ 0d ]
 w_s = [ 0d ]
 M_s = [ 1d ]
 N_s = [ 0d ]
-mass_s_final = [ 1d-15]
-t_grow_sat = 1
+mass_s_final = [ 0d ]
+t_grow_sat = -5d3
 sat_index = 0
 corotate_sat = 'n'
 m_LR = 2
 epsilon_LR = 1
-satellite_gravity = 'n'
+satellite_gravity = 'y'
 fourier_satellite = 'n'
 
 ;Parameters for the central planet's oblateness, where Rp_cm=central planet's radius
 ;in centimeters and J2.
 Rp_cm = 60330d5
-J2 = 0
+J2 = 0d
 
 ;Set pressure='p' to turn on, and set ring particles' initial dispersion speed c.
 pressure = 'n'
@@ -98,8 +98,8 @@ viscosity_law = 'constant'		; 'constant' or 'collisions' or 'wakes' or 'fake c'
 shear_viscosity = 1.0d-13
 bulk_viscosity = shear_viscosity
 optical_depth = 1d
-confine_outer_edge = 'n'
-confine_inner_edge = 'n'
+confine_outer_edge = 'y'
+confine_inner_edge = 'y'
 
 ;Drag force is turned on by setting drag_force='y' and setting frag coefficient drag_coeff.
 ;The drage force decays away over exponential timescale drag_timescale when positive, and
@@ -124,13 +124,13 @@ drag_timescale = -4.0d4
 display = 'monitor'
 r_ref = 1d
 plot_units = 'r1'
-ecc_axis = 'linear'
-ecc_range = [2.0d-4, 3.4d-4]
+ecc_axis = 'log'
+ecc_range = [1.0d-10, 1.0d-4]
 wpi_range = [-1, 1]
-sd_range = [0, 2.5]
+sd_range = [0.0, 1.5]
 sd_radii = [0]
 sd_longitude = [-0.25, 0.25]*!dpi
-r_range = [-0.00043, 0.00043]
+r_range = [-0.0012, 0.0005]
 z_range = [-0.00002, 0.00002]
 
 ;Name of file where simulation output data and restart data is stored
