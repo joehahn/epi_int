@@ -15,7 +15,7 @@ Nt = 32l
 ;output, and Noutput=number of outputs +1 to store initial state.
 dt = !dpi/10d
 Nsteps_per_output = 2000l
-Noutput = 100l
+Noutput = 10;0l
 
 ;Set difference_method='approximate' (faster but less accurate) or 'polynomial' (slower
 ;but more accurate). Set precision=1 for drift step to use equations accurate to e^1,
